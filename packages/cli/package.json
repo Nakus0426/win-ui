@@ -1,0 +1,25 @@
+{
+  "name": "@win-ui/cli",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "rimraf ./lib && tsc"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "rimraf": "^5.0.0"
+  },
+  "dependencies": {
+    "consola": "^3.1.0",
+    "esbuild": "^0.17.18",
+    "execa": "^7.1.1",
+    "fs-extra": "^11.1.1",
+    "hash-sum": "^2.0.0",
+    "postcss": "^8.4.23",
+    "postcss-load-config": "^4.0.1"
+  }
+}

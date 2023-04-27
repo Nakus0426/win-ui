@@ -1,0 +1,17 @@
+{
+  "name": "@win-ui/components",
+  "version": "0.0.1",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@win-ui/hooks": "workspace:*"
+  },
+  "devDependencies": {
+    "@win-ui/cli": "workspace:*"
+  }
+}
