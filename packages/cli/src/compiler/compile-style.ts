@@ -8,7 +8,7 @@ import { POSTCSS_CONFIG_FILE } from '../common/constant'
 
 const _require = createRequire(import.meta.url)
 
-export async function compileCss(source: string | Buffer) {
+export async function compileCss(source: string) {
   const config = await postcssrc({}, POSTCSS_CONFIG_FILE)
   const { css } = await postcss(config.plugins).process(source, { from: undefined })
   const result = await transform(css, {

@@ -10,6 +10,7 @@ import { genComponentStyle } from '../compiler/gen-component-style'
 import { genPackageStyle } from '../compiler/gen-package-style'
 import { compileSfc } from '../compiler/compile-sfc'
 import { compileStyle } from '../compiler/compile-style'
+import { compileScript } from '../compiler/compile-script'
 
 async function clean() {
   consola.info('Clean')

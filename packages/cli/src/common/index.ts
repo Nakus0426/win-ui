@@ -55,6 +55,10 @@ export function replaceExt(path: string, ext: string) {
   return path.replace(EXT_REGEXP, ext)
 }
 
+export function replaceCSSImportExt(code: string) {
+  return code.replace(/import\s+?(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g, str => str.replace(`.${CSS_LANG}`, '.css'))
+}
+
 export function normalizePath(path: string): string {
   return path.replace(/\\/g, '/')
 }

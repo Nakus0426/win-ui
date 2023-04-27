@@ -10,10 +10,14 @@
     "build": "rimraf ./lib && tsc"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.0",
     "@types/fs-extra": "^11.0.1",
     "rimraf": "^5.0.0"
   },
   "dependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@vue/babel-plugin-jsx": "^1.1.1",
     "consola": "^3.1.0",
     "esbuild": "^0.17.18",
     "execa": "^7.1.1",
