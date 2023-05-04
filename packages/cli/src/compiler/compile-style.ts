@@ -1,10 +1,10 @@
 import { createRequire } from 'node:module'
 import postcss from 'postcss'
-import { writeFileSync } from 'fs-extra'
+import fe from 'fs-extra'
 import { transform } from 'esbuild'
 import postcssrc from 'postcss-load-config'
-import { replaceExt } from '../common'
-import { POSTCSS_CONFIG_FILE } from '../common/constant'
+import { replaceExt } from '../common/index.js'
+import { POSTCSS_CONFIG_FILE } from '../common/constant.js'
 
 const _require = createRequire(import.meta.url)
 
@@ -38,5 +38,5 @@ function compileSass(filePath: string) {
 export async function compileStyle(filePath: string) {
   const source = await compileSass(filePath)
   const css = await compileCss(source)
-  writeFileSync(replaceExt(filePath, '.css'), css)
+  fe.writeFileSync(replaceExt(filePath, '.css'), css)
 }

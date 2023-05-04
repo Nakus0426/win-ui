@@ -2,16 +2,22 @@
   "name": "@win-ui/components",
   "version": "0.0.1",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "main": "lib/win-ui.cjs.js",
+  "module": "es/index.mjs",
+  "style": "lib/index.css",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "win-cli build"
   },
   "dependencies": {
-    "@win-ui/hooks": "workspace:*"
+    "@win-ui/hooks": "workspace:*",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@win-ui/cli": "workspace:*"
+    "@types/lodash-es": "^4.17.7",
+    "@vue/runtime-core": "^3.2.47",
+    "@win-ui/cli": "workspace:*",
+    "typescript": "^5.0.4",
+    "vue": "^3.2.47"
   }
 }

@@ -1,6 +1,6 @@
 import { join, sep } from 'node:path'
-import { existsSync, lstatSync, outputFileSync, readFileSync, readdirSync } from 'fs-extra'
-import { CSS_LANG, SRC_DIR, STYLE_DIR } from './constant'
+import fe from 'fs-extra'
+import { CSS_LANG, SRC_DIR, STYLE_DIR } from './constant.js'
 
 export const EXT_REGEXP = /\.\w+$/
 export const SFC_REGEXP = /\.(vue)$/
@@ -24,31 +24,31 @@ export function hasDefaultExport(code: string) {
 }
 
 export function getComponents() {
-  const dirs = readdirSync(SRC_DIR)
+  const dirs = fe.readdirSync(SRC_DIR)
   const EXCLUDES = '.DS_Store'
   const ENTRY_EXTS = 'ts'
   return dirs
     .filter(dir => EXCLUDES !== dir)
     .filter((dir) => {
       const path = join(SRC_DIR, dir, `index.${ENTRY_EXTS}`)
-      if (existsSync(path))
-        return hasDefaultExport(readFileSync(path, 'utf-8'))
+      if (fe.existsSync(path))
+        return hasDefaultExport(fe.readFileSync(path, 'utf-8'))
       return false
     })
 }
 
 export function smartOutputFile(filePath: string, content: string) {
-  if (existsSync(filePath)) {
-    const previousContent = readFileSync(filePath, 'utf-8')
+  if (fe.existsSync(filePath)) {
+    const previousContent = fe.readFileSync(filePath, 'utf-8')
     if (previousContent === content)
       return
   }
-  outputFileSync(filePath, content)
+  fe.outputFileSync(filePath, content)
 }
 
 export function getCssBaseFile() {
   const path = join(STYLE_DIR, `base.${CSS_LANG}`)
-  return existsSync(path) ? path : null
+  return fe.existsSync(path) ? path : null
 }
 
 export function replaceExt(path: string, ext: string) {
@@ -63,7 +63,11 @@ export function normalizePath(path: string): string {
   return path.replace(/\\/g, '/')
 }
 
-export const isDir = (dir: string) => lstatSync(dir).isDirectory()
+export function setBuildTarget(value: 'site' | 'package') {
+  process.env.BUILD_TARGET = value
+}
+
+export const isDir = (dir: string) => fe.lstatSync(dir).isDirectory()
 export const isDemoDir = (dir: string) => DEMO_REGEXP.test(dir)
 export const isTestDir = (dir: string) => TEST_REGEXP.test(dir)
 export const isAsset = (path: string) => ASSET_REGEXP.test(path)

@@ -1,9 +1,9 @@
 import { createRequire } from 'node:module'
 import { join, relative, sep } from 'node:path'
-import { outputFileSync } from 'fs-extra'
-import { CSS_LANG, ES_DIR, LIB_DIR, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant'
-import { getComponents, getCssBaseFile, replaceExt } from '../common'
-import { getDeps } from './get-deps'
+import fe from 'fs-extra'
+import { CSS_LANG, ES_DIR, LIB_DIR, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js'
+import { getComponents, getCssBaseFile, replaceExt } from '../common/index.js'
+import { checkStyleExists } from './gen-style-deps-map.js'
 
 const OUTPUT_CONFIG = [
   {
@@ -15,6 +15,22 @@ const OUTPUT_CONFIG = [
     template: (dep: string) => `require('${dep}');`,
   },
 ]
+
+function getDeps(component: string): string[] {
+  const require = createRequire(import.meta.url)
+  const styleDepsJson = require(STYLE_DEPS_JSON_FILE)
+
+  if (styleDepsJson.map[component]) {
+    const deps = styleDepsJson.map[component].slice(0)
+
+    if (checkStyleExists(component))
+      deps.push(component)
+
+    return deps
+  }
+
+  return []
+}
 
 function getRelativePath(component: string, style: string, ext: string) {
   return relative(join(ES_DIR, `${component}/style`), join(ES_DIR, `${component}/index${ext}`))
@@ -40,7 +56,7 @@ function genEntry(params: {
     }
     content += depsPath.map(template).join('\n')
     content = content.replace(new RegExp(`\\${sep}`, 'g'), '/')
-    outputFileSync(outputFile, content)
+    fe.outputFileSync(outputFile, content)
   })
 }
 

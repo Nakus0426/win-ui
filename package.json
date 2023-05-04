@@ -2,16 +2,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {},
-  "dependencies": {
-    "lodash-es": "^4.17.21"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.5",
-    "@types/lodash-es": "^4.17.7",
-    "@types/node": "^18.16.1",
-    "eslint": "^8.39.0",
-    "sass": "^1.62.1",
-    "typescript": "^5.0.4",
-    "vue": "^3.2.47"
+    "eslint": "^8.39.0"
   }
 }

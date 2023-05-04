@@ -1,8 +1,8 @@
 import { createRequire } from 'node:module'
 import { join } from 'node:path'
-import { existsSync } from 'fs-extra'
-import { CSS_LANG, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant'
-import { getCssBaseFile, normalizePath, smartOutputFile } from '../common'
+import fe from 'fs-extra'
+import { CSS_LANG, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js'
+import { getCssBaseFile, normalizePath, smartOutputFile } from '../common/index.js'
 
 export function genPackageStyle(outputPath?: string, pathResolver?: (path: string) => string) {
   const require = createRequire(import.meta.url)
@@ -18,7 +18,7 @@ export function genPackageStyle(outputPath?: string, pathResolver?: (path: strin
   content += styleDepsJson.sequence
     .map((name: string) => {
       let path = join(SRC_DIR, `${name}/index${ext}`)
-      if (!existsSync(path))
+      if (!fe.existsSync(path))
         return ''
       if (pathResolver)
         path = pathResolver(path)

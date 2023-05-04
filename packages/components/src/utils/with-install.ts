@@ -1,5 +1,5 @@
 import { kebabCase } from 'lodash-es'
-import type { App, Component } from 'vue'
+import type { App, Component } from '@vue/runtime-core'
 
 interface EventShim {
   new(...args: any[]): {

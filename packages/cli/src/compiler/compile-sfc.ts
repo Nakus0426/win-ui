@@ -1,17 +1,17 @@
 import { parse as pathParse } from 'node:path'
-import { outputFile, readFileSync, remove } from 'fs-extra'
+import fe from 'fs-extra'
 import type { SFCBlock } from 'vue/compiler-sfc'
 import { compileScript, compileTemplate, parse } from 'vue/compiler-sfc'
 import hash from 'hash-sum'
 import { trim } from 'lodash-es'
-import { replaceExt } from '../common'
+import { replaceExt } from '../common/index.js'
 
 const RENDER_FN = '__vue_render__'
 const VUEIDS = '__vue_sfc__'
 const EXPORT = 'export default'
 
 function parseSfc(filename: string) {
-  const source = readFileSync(filename, 'utf-8')
+  const source = fe.readFileSync(filename, 'utf-8')
   const { descriptor } = parse(source, { filename })
   return descriptor
 }
@@ -47,8 +47,8 @@ function injectScopeId(script: string, scopeId: string) {
 }
 
 export async function compileSfc(filePath: string): Promise<any> {
-  const tasks = [remove(filePath)]
-  const source = readFileSync(filePath, 'utf-8')
+  const tasks = [fe.remove(filePath)]
+  const source = fe.readFileSync(filePath, 'utf-8')
   const descriptor = parseSfc(filePath)
   const { template, styles } = descriptor
   const hasScoped = styles.some(s => s.scoped)
@@ -89,7 +89,7 @@ export async function compileSfc(filePath: string): Promise<any> {
         script += `\n${EXPORT} ${VUEIDS}`
         if (lang === 'ts')
           script = `// @ts-nocheck\n${script}`
-        outputFile(scriptFilePath, script).then(resolve).catch(() => { })
+        fe.outputFile(scriptFilePath, script).then(resolve).catch(() => { })
       }),
     )
   }
@@ -98,7 +98,7 @@ export async function compileSfc(filePath: string): Promise<any> {
     ...styles.map(async (style, index: number) => {
       const cssFilePath = getSfcStylePath(filePath, style.lang || 'css', index)
       const styleSource = trim(style.content)
-      return outputFile(cssFilePath, styleSource)
+      return fe.outputFile(cssFilePath, styleSource)
     }),
   )
 

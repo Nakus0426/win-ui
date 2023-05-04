@@ -1,15 +1,15 @@
 import { sep } from 'node:path'
 import { type Format, transform } from 'esbuild'
-import { outputFileSync, readFileSync, removeSync } from 'fs-extra'
+import fe from 'fs-extra'
 import { transformAsync } from '@babel/core'
-import { isJsx, replaceCSSImportExt, replaceExt } from '../common'
-import { replaceScriptImportExt } from './get-deps'
+import { isJsx, replaceCSSImportExt, replaceExt } from '../common/index.js'
+import { replaceScriptImportExt } from './get-deps.js'
 
 export async function compileScript(filePath: string, format: Format) {
   if (filePath.includes('.d.ts'))
     return
   const extension = '.js'
-  let code = readFileSync(filePath, 'utf-8')
+  let code = fe.readFileSync(filePath, 'utf-8')
   if (!filePath.includes(`${sep}style${sep}`))
     code = replaceCSSImportExt(code)
   code = replaceScriptImportExt(code, filePath, extension)
@@ -30,6 +30,6 @@ export async function compileScript(filePath: string, format: Format) {
   });
   ({ code } = esbuildResult)
   const jsFilePath = replaceExt(filePath, extension)
-  removeSync(filePath)
-  outputFileSync(jsFilePath, code)
+  fe.removeSync(filePath)
+  fe.outputFileSync(jsFilePath, code)
 }

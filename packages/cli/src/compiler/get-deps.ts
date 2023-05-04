@@ -1,6 +1,6 @@
 import { join } from 'node:path'
-import { existsSync, readFileSync } from 'fs-extra'
-import { STYLE_EXT } from '../common/constant'
+import fe from 'fs-extra'
+import { STYLE_EXT } from '../common/constant.js'
 
 const SCRIPT_EXTS = [
   '.js',
@@ -32,13 +32,13 @@ export function clearDepsCache() {
 export function fillExt(filePath: string) {
   for (let i = 0; i < SCRIPT_EXTS.length; i++) {
     const completePath = `${filePath}${SCRIPT_EXTS[i]}`
-    if (existsSync(completePath))
+    if (fe.existsSync(completePath))
       return { path: completePath, isIndex: false }
   }
 
   for (let i = 0; i < SCRIPT_EXTS.length; i++) {
     const completePath = `${filePath}/index${SCRIPT_EXTS[i]}`
-    if (existsSync(completePath))
+    if (fe.existsSync(completePath))
       return { path: completePath, isIndex: true }
   }
 
@@ -60,7 +60,7 @@ function getPathByImport(code: string, filePath: string) {
 export function getDeps(filePath: string) {
   if (depsMap[filePath])
     return depsMap[filePath]
-  const code = readFileSync(filePath, 'utf-8')
+  const code = fe.readFileSync(filePath, 'utf-8')
   const imports = matchImports(code)
   const paths = imports
     .map(item => getPathByImport(item, filePath)?.path)

@@ -1,10 +1,14 @@
 import { join, relative, sep } from 'node:path'
-import { existsSync } from 'fs-extra'
-import { getComponents, smartOutputFile } from '../common'
-import { CSS_LANG, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant'
-import { clearDepsCache, fillExt, getDeps } from './get-deps'
+import fe from 'fs-extra'
+import { getComponents, smartOutputFile } from '../common/index.js'
+import { CSS_LANG, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js'
+import { clearDepsCache, fillExt, getDeps } from './get-deps.js'
 
 type DepsMap = Record<string, string[]>
+
+export function checkStyleExists(component: string) {
+  return fe.existsSync(join(SRC_DIR, `${component}/index.${CSS_LANG}`))
+}
 
 function analyzeComponentDeps(components: string[], component: string) {
   const checkList: string[] = []
@@ -31,7 +35,7 @@ function analyzeComponentDeps(components: string[], component: string) {
   }
 
   search(componentEntry)
-  return checkList.filter(item => existsSync(join(SRC_DIR, `${item}/index.${CSS_LANG}`)))
+  return checkList.filter(checkStyleExists)
 }
 
 function getSequence(components: string[], depsMap: DepsMap) {
