@@ -13,6 +13,7 @@ import { compileSfc } from '../compiler/compile-sfc.js'
 import { compileStyle } from '../compiler/compile-style.js'
 import { compileScript } from '../compiler/compile-script.js'
 import { genPackageEntry } from '../compiler/gen-package-entry.js'
+import { compileBundles } from '../compiler/compile-bundles.js'
 
 async function preCompileDir(dir: string) {
   const files = await fe.readdir(dir)
@@ -108,11 +109,11 @@ async function buildCJSOutputs() {
   await compileDir(LIB_DIR, 'cjs')
 }
 
-// async function buildBundledOutputs() {
-//   setModuleEnv('esmodule')
-//   await compileBundles()
-//   genWebStormTypes(config.build?.tagPrefix)
-// }
+async function buildBundledOutputs() {
+  setModuleEnv('esmodule')
+  await compileBundles()
+  // genWebStormTypes(config.build?.tagPrefix)
+}
 
 const tasks = [
   {

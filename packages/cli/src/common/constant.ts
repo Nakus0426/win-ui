@@ -3,6 +3,8 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import fe from 'fs-extra'
 
+export const PACKAGE_NAME = 'win-ui'
+
 export const CWD = process.cwd()
 export const ROOT = findRootDir(CWD)
 export const SRC_DIR = join(ROOT, 'src')
