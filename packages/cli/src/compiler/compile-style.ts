@@ -24,7 +24,7 @@ function tildeImporter(url: string) {
     url = url.replace('~', '')
     if (!url.includes('.scss'))
       url += '.scss'
-    url = require.resolve(url)
+    url = _require.resolve(url)
   }
   return { file: url }
 }
@@ -38,5 +38,6 @@ function compileSass(filePath: string) {
 export async function compileStyle(filePath: string) {
   const source = await compileSass(filePath)
   const css = await compileCss(source)
+  fe.removeSync(filePath)
   fe.writeFileSync(replaceExt(filePath, '.css'), css)
 }

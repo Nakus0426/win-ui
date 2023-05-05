@@ -14,6 +14,7 @@ import { compileStyle } from '../compiler/compile-style.js'
 import { compileScript } from '../compiler/compile-script.js'
 import { genPackageEntry } from '../compiler/gen-package-entry.js'
 import { compileBundles } from '../compiler/compile-bundles.js'
+import { genWebStormTypes } from '../compiler/web-storm-types/index.js'
 
 async function preCompileDir(dir: string) {
   const files = await fe.readdir(dir)
@@ -112,7 +113,7 @@ async function buildCJSOutputs() {
 async function buildBundledOutputs() {
   setModuleEnv('esmodule')
   await compileBundles()
-  // genWebStormTypes(config.build?.tagPrefix)
+  genWebStormTypes()
 }
 
 const tasks = [
@@ -144,10 +145,10 @@ const tasks = [
     text: 'Build CommonJS Outputs',
     task: buildCJSOutputs,
   },
-  // {
-  //   text: 'Build Bundled Outputs',
-  //   task: buildBundledOutputs,
-  // },
+  {
+    text: 'Build Bundled Outputs',
+    task: buildBundledOutputs,
+  },
 ]
 
 async function runBuildTasks() {

@@ -8,7 +8,8 @@ import { replaceScriptImportExt } from './get-deps.js'
 export async function compileScript(filePath: string, format: Format) {
   if (filePath.includes('.d.ts'))
     return
-  const extension = '.js'
+  const extensions: Record<string, string> = { esm: '.mjs' }
+  const extension = extensions?.[format] || '.js'
   let code = fe.readFileSync(filePath, 'utf-8')
   if (!filePath.includes(`${sep}style${sep}`))
     code = replaceCSSImportExt(code)

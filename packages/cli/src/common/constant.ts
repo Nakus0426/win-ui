@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import fe from 'fs-extra'
 
 export const PACKAGE_NAME = 'win-ui'
+export const TAG_PREFIX_NAME = 'win-'
 
 export const CWD = process.cwd()
 export const ROOT = findRootDir(CWD)
@@ -18,7 +19,16 @@ export const DIST_DIR = join(__dirname, '..', '..', 'dist')
 export const CJS_DIR = join(__dirname, '..', '..', 'cjs')
 
 export const CSS_LANG = 'scss'
-export const STYLE_EXT = '.scss'
+export const STYLE_EXTS = ['.css', '.scss']
+export const SCRIPT_EXTS = [
+  '.js',
+  '.jsx',
+  '.vue',
+  '.ts',
+  '.tsx',
+  '.mjs',
+  '.cjs',
+]
 
 export const STYLE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json')
 

@@ -3,7 +3,6 @@ import fe from 'fs-extra'
 import type { SFCBlock } from 'vue/compiler-sfc'
 import { compileScript, compileTemplate, parse } from 'vue/compiler-sfc'
 import hash from 'hash-sum'
-import { trim } from 'lodash-es'
 import { replaceExt } from '../common/index.js'
 
 const RENDER_FN = '__vue_render__'
@@ -32,6 +31,10 @@ function injectStyle(script: string, styles: SFCBlock[], filePath: string) {
     return `${imports}\n${script}`
   }
   return script
+}
+
+function trim(code: string) {
+  return code.replace(/\/\/\n/g, '').trim()
 }
 
 function injectRender(script: string, render: string) {

@@ -1,16 +1,7 @@
 import { join } from 'node:path'
 import fe from 'fs-extra'
-import { STYLE_EXT } from '../common/constant.js'
+import { SCRIPT_EXTS, STYLE_EXTS } from '../common/constant.js'
 
-const SCRIPT_EXTS = [
-  '.js',
-  '.jsx',
-  '.vue',
-  '.ts',
-  '.tsx',
-  '.mjs',
-  '.cjs',
-]
 let depsMap: Record<string, string[]> = {}
 let existsCache: Record<string, boolean> = {}
 
@@ -85,7 +76,7 @@ export function replaceScriptImportExt(code: string, filePath: string, ext: stri
 
   if (ext === '.mjs' || ext === '.cjs') {
     imports.forEach((line, index) => {
-      if (line === STYLE_EXT)
+      if (STYLE_EXTS.some(ext => line.includes(ext)))
         return
       if (line.includes(ext))
         return
