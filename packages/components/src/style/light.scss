@@ -56,4 +56,33 @@
   --win-color-accent-tertiary: rgba(0, 95, 184, 0.8);
   --win-color-accent-disabled: rgba(0, 0, 0, 0.2169);
   --win-color-accent-selected: #0078D4;
+
+  --win-color-elevation-control: linear-gradient(180deg, rgba(0, 0, 0, 0.0578) 90.58%, rgba(0, 0, 0, 0.1622) 100%);
+  --win-color-elevation-circle: linear-gradient(180deg, rgba(0, 0, 0, 0.0578) 50.02%, rgba(0, 0, 0, 0.1622) 95.45%);
+  --win-color-elevation-control-text: linear-gradient(180deg, rgba(0, 0, 0, 0.0578) 99.99%, rgba(0, 0, 0, 0.4458) 100%);
+  --win-color-elevation-control-text-focused: linear-gradient(180deg, rgba(0, 0, 0, 0.0578) 96.87%, #0067C0 96.89%);
+  --win-color-elevation-control-accent: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 90.67%, rgba(0, 0, 0, 0.4) 100%);
+
+  --win-color-stroke-control-default: rgba(0, 0, 0, 0.0578);
+  --win-color-stroke-control-secondary: rgba(0, 0, 0, 0.1622);
+  --win-color-stroke-control-default-accent: rgba(255, 255, 255, 0.08);
+  --win-color-stroke-control-secondary-accent: rgba(0, 0, 0, 0.4);
+  --win-color-stroke-control-tertiary-accent: rgba(0, 0, 0, 0.2169);
+  --win-color-stroke-control-disabled-accent: rgba(0, 0, 0, 0.0578);
+  --win-color-stroke-control-strong-fill: rgba(255, 255, 255, 0.35);
+
+  --win-color-stroke-card-default: rgba(0, 0, 0, 0.0578);
+  --win-color-stroke-card-solid: #EBEBEB;
+
+  --win-color-stroke-control-strong-default: rgba(0, 0, 0, 0.6063);
+  --win-color-stroke-control-strong-disabled: rgba(0, 0, 0, 0.2169);
+
+  --win-color-stroke-surface-default: rgba(117, 117, 117, 0.4);
+  --win-color-stroke-surface-flyout: rgba(0, 0, 0, 0.0578);
+
+  --win-color-stroke-divider-default: rgba(0, 0, 0, 0.0803);
+
+  --win-color-background-card-default: rgba(255, 255, 255, 0.7);
+  --win-color-background-card-secondary: rgba(246, 246, 246, 0.5);
+  --win-color-background-card-tertiary: #FFFFFF;
 }
