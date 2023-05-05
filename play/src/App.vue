@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { WButton } from '@win-ui/components/src/button'
 </script>
 
 <template>
-  <WButton size="small" />
   <WButton />
 </template>
 

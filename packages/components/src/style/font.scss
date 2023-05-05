@@ -1,0 +1,27 @@
+:root {
+  --win-font-family: PingFang SC, Microsoft YaHei, Arial Regular;
+
+  --win-font-size-caption: 12px;
+  --win-font-size-body: 14px;
+  --win-font-size-body-large: 18px;
+  --win-font-size-subtitle: 20px;
+  --win-font-size-title: 28px;
+  --win-font-size-title-large: 40px;
+  --win-font-size-display: 68px;
+
+  --win-line-height-caption: 16px;
+  --win-line-height-body: 20px;
+  --win-line-height-body-large: 24px;
+  --win-line-height-subtitle: 28px;
+  --win-line-height-title: 28px;
+  --win-line-height-title-large: 52px;
+  --win-line-height-display: 92px;
+
+  --win-font-caption: var(--win-font-size-caption) / var(--win-line-height-caption) var(--win-font-family);
+  --win-font-body: var(--win-font-size-body) / var(--win-line-height-body) var(--win-font-family);
+  --win-font-body-large: var(--win-font-size-body-large) / var(--win-line-height-body-large) var(--win-font-family);
+  --win-font-subtitle: var(--win-font-size-subtitle) / var(--win-line-height-subtitle) var(--win-font-family);
+  --win-font-title: var(--win-font-size-title) / var(--win-line-height-title) var(--win-font-family);
+  --win-font-title-large: var(--win-font-size-large) / var(--win-line-height-large) var(--win-font-family);
+  --win-font-display: var(--win-font-size-display) / var(--win-line-height-display) var(--win-font-family);
+}

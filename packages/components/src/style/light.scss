@@ -1,0 +1,59 @@
+:root,
+:root[theme-mode="light"] {
+  --win-color-white: #FFFFFF;
+  --win-color-white: #000000;
+
+  --win-color-attention: #005FB7;
+  --win-color-success: #0F7B0F;
+  --win-color-caution: #9D5D00;
+  --win-color-critical: #C42B1C;
+  --win-color-neutral: rgba(0, 0, 0, 0.4458);
+  --win-color-neutral-solid: #8A8A8A;
+
+  --win-color-attention-background: rgba(246, 246, 246, 0.5);
+  --win-color-success-background: #DFF6DD;
+  --win-color-caution-background: #FFF4CE;
+  --win-color-critical-background: #FDE7E9;
+  --win-color-neutral-background: rgba(0, 0, 0, 0.0241);
+  --win-color-neutral-solid-background: #F3F3F3;
+
+  --win-color-text-primary: rgba(0, 0, 0, 0.8956);
+  --win-color-text-secondary: rgba(0, 0, 0, 0.6063);
+  --win-color-text-tertiary: rgba(0, 0, 0, 0.4458);
+  --win-color-text-disabled: rgba(0, 0, 0, 0.3614);
+
+  --win-color-text-accent-primary: #003E92;
+  --win-color-text-accent-secondary: #001A68;
+  --win-color-text-accent-tertiary: #005FB8;
+  --win-color-text-accent-disabled: rgba(0, 0, 0, 0.3614);
+
+  --win-color-text-accent-primary-2: #FFFFFF;
+  --win-color-text-accent-secondary-2: rgba(255, 255, 255, 0.7);
+  --win-color-text-accent-tertiary-2: rgba(255, 255, 255, 0.7);
+  --win-color-text-accent-disabled-2: #FFFFFF;
+
+  --win-color-control-default: rgba(255, 255, 255, 0.7);
+  --win-color-control-secondary: rgba(249, 249, 249, 0.5);
+  --win-color-control-tertiary: rgba(249, 249, 249, 0.3);
+  --win-color-control-quarternary: rgba(243, 243, 243, 0.76);
+  --win-color-control-disabled: rgba(249, 249, 249, 0.3);
+  --win-color-control-active: #FFFFFF;
+
+  --win-color-control-fill-secondary: rgba(0, 0, 0, 0.0241);
+  --win-color-control-fill-tertiary: rgba(0, 0, 0, 0.0578);
+  --win-color-control-fill-quarternary: rgba(0, 0, 0, 0.0924);
+
+  --win-color-control-solid: #FFFFFF;
+
+  --win-color-control-strong-fill-default: rgba(0, 0, 0, 0.4458);
+  --win-color-control-strong-fill-disabled: rgba(0, 0, 0, 0.3173);
+
+  --win-color-subtle-sencondary: rgba(0, 0, 0, 0.0373);
+  --win-color-subtle-tertiary: rgba(0, 0, 0, 0.0241);
+
+  --win-color-accent-default: #005FB8;
+  --win-color-accent-secondary: rgba(0, 95, 184, 0.9);
+  --win-color-accent-tertiary: rgba(0, 95, 184, 0.8);
+  --win-color-accent-disabled: rgba(0, 0, 0, 0.2169);
+  --win-color-accent-selected: #0078D4;
+}

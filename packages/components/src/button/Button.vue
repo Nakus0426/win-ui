@@ -11,9 +11,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <button>按钮</button>
+  <button type="button">
+    按钮
+  </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './index.scss';
 </style>

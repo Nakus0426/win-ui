@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
-import { WButton } from '@win-ui/components'
 import App from './App.vue'
+import '@win-ui/components/src/style/base.scss'
 
 const app = createApp(App)
-
-app.use(WButton)
 app.mount('#app')
