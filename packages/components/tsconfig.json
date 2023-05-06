@@ -2,9 +2,7 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "allowJs": true,
-    "noImplicitThis": true,
-    "preserveSymlinks": true,
-    "baseUrl": "./"
+    "noImplicitThis": true
   },
   "include": ["src/**/*", "docs/**/*", "test/**/*"]
 }

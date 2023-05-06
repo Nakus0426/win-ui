@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.7",
+    "@types/node": "^20.1.0",
     "@vue/runtime-core": "^3.2.47",
     "@win-ui/cli": "workspace:*",
     "typescript": "^5.0.4",
