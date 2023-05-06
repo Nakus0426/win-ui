@@ -1,3 +1,9 @@
-button {
-  font: var(--win-font-body);
+.button {
+  position: fixed;
+  left: 100px;
+  top: 100px;
+  width: 200px;
+  height: 200px;
+  background: var(--win-background-acrylic-base);
+  backdrop-filter: var(--win-blur-acrylic);
 }

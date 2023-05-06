@@ -1,0 +1,149 @@
+:root,
+:root[theme-mode="dark"] {
+  --win-color-white: #FFFFFF;
+  --win-color-dark: #000000;
+
+  // System
+  --win-color-attention: #60CDFF;
+  --win-color-success: #6CCB5F;
+  --win-color-caution: #FCE100;
+  --win-color-critical: #FF99A4;
+  --win-color-neutral: rgba(255, 255, 255, 0.5442);
+  --win-color-neutral-solid: #9D9D9D;
+
+  // System Background
+  --win-color-attention-background: rgba(255, 255, 255, 0.0326);
+  --win-color-success-background: #393D1B;
+  --win-color-caution-background: #433519;
+  --win-color-critical-background: #442726;
+  --win-color-neutral-background: rgba(255, 255, 255, 0.0326);
+  --win-color-neutral-solid-background: #2E2E2E;
+
+  // Text
+  --win-color-text-primary: #FFFFFF;
+  --win-color-text-secondary: rgba(255, 255, 255, 0.786);
+  --win-color-text-tertiary: rgba(255, 255, 255, 0.5442);
+  --win-color-text-disabled: rgba(255, 255, 255, 0.3628);
+
+  // Accent Text
+  --win-color-text-accent-primary: #99EBFF;
+  --win-color-text-accent-secondary: #99EBFF;
+  --win-color-text-accent-tertiary: #60CDFF;
+  --win-color-text-accent-disabled: rgba(255, 255, 255, 0.3628);
+
+  // Text On Accent
+  --win-color-text-accent-primary-2: #000000;
+  --win-color-text-accent-secondary-2: rgba(0, 0, 0, 0.5);
+  --win-color-text-accent-tertiary-2: #FFFFFF;
+  --win-color-text-accent-disabled-2: rgba(255, 255, 255, 0.5302);
+
+  // Control Fill
+  --win-color-control-default: rgba(255, 255, 255, 0.0605);
+  --win-color-control-secondary: rgba(255, 255, 255, 0.0837);
+  --win-color-control-tertiary: rgba(255, 255, 255, 0.0326);
+  --win-color-control-quarternary: rgba(255, 255, 255, 0.0605);
+  --win-color-control-disabled: rgba(255, 255, 255, 0.0419);
+  --win-color-control-active: rgba(30, 30, 30, 0.7);
+
+  // Control Alt Fill
+  --win-color-control-alt-secondary: rgba(0, 0, 0, 0.1);
+  --win-color-control-alt-tertiary: rgba(255, 255, 255, 0.0419);
+  --win-color-control-alt-quarternary: rgba(255, 255, 255, 0.0698);
+
+  // Control Solid
+  --win-color-control-solid: #454545;
+
+  // Control Strong Fill
+  --win-color-control-strong-default: rgba(255, 255, 255, 0.5442);
+  --win-color-control-strong-disabled: rgba(255, 255, 255, 0.2465);
+
+  // Subtle Fill
+  --win-color-subtle-sencondary: rgba(255, 255, 255, 0.0605);
+  --win-color-subtle-tertiary: rgba(255, 255, 255, 0.0419);
+
+  // Accent Fill
+  --win-color-accent-default: #60CDFF;
+  --win-color-accent-secondary: rgba(96, 205, 255, 0.9);
+  --win-color-accent-tertiary: rgba(96, 205, 255, 0.8);
+  --win-color-accent-disabled: rgba(255, 255, 255, 0.1581);
+  --win-color-accent-selected: #0078D4;
+
+  // Control Elevation
+  --win-color-elevation-control: linear-gradient(180deg, rgba(255, 255, 255, 0.093) 0%, rgba(255, 255, 255, 0.0698) 9.57%);
+  --win-color-elevation-circle: linear-gradient(180deg, rgba(255, 255, 255, 0.093) 0%, rgba(255, 255, 255, 0.0698) 50%);
+  --win-color-elevation-control-text: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 99.98%, rgba(255, 255, 255, 0.5442) 100%, rgba(255, 255, 255, 0.5442) 100%);
+  --win-color-elevation-control-text-focused: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 96.89%, #4CC2FF 96.9%);
+  --win-color-elevation-control-accent: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 90.67%, rgba(0, 0, 0, 0.14) 100%);
+
+  // Control Stroke
+  --win-color-stroke-control-default: rgba(255, 255, 255, 0.0698);
+  --win-color-stroke-control-secondary: rgba(255, 255, 255, 0.093);
+  --win-color-stroke-control-default-accent: rgba(255, 255, 255, 0.08);
+  --win-color-stroke-control-secondary-accent: rgba(0, 0, 0, 0.14);
+  --win-color-stroke-control-tertiary-accent: rgba(0, 0, 0, 0.2169);
+  --win-color-stroke-control-disabled-accent: rgba(0, 0, 0, 0.2);
+  --win-color-stroke-control-strong-fill: rgba(0, 0, 0, 0.42);
+
+  // Card Stroke
+  --win-color-stroke-card-default: rgba(0, 0, 0, 0.1);
+  --win-color-stroke-card-solid: #1C1C1C;
+
+  // Control Strong Stroke
+  --win-color-stroke-control-strong-default: rgba(255, 255, 255, 0.6047);
+  --win-color-stroke-control-strong-disabled: rgba(255, 255, 255, 0.1581);
+
+  // Surface Stroke
+  --win-color-stroke-surface-default: rgba(117, 117, 117, 0.4);
+  --win-color-stroke-surface-flyout: rgba(0, 0, 0, 0.2);
+
+  // Divider Stroke
+  --win-color-stroke-divider-default: rgba(255, 255, 255, 0.0837);
+
+  // Card Background
+  --win-color-background-card-default: rgba(255, 255, 255, 0.0512);
+  --win-color-background-card-secondary: rgba(255, 255, 255, 0.0326);
+  --win-color-background-card-tertiary: rgba(255, 255, 255, 0.0698);
+
+  // Smoke Background
+  --win-color-background-smoke: rgba(0, 0, 0, 0.3);
+
+  // Layer
+  --win-color-layer-default: rgba(58, 58, 58, 0.3);
+  --win-color-layer-alt: rgba(255, 255, 255, 0.0538);
+
+  // Layer On Acrylic
+  --win-color-layer-acrylic: rgba(255, 255, 255, 0.0359);
+
+  // Layer On Mica Base Alt
+  --win-color-layer-mica-default: rgba(58, 58, 58, 0.45);
+  --win-color-layer-secondary: rgba(255, 255, 255, 0.0605);
+  --win-color-layer-teritary: #2C2C2C;
+
+  // Solid Background
+  --win-color-background-solid-base: #202020;
+  --win-color-background-solid-base-alt: #0A0A0A;
+  --win-color-background-solid-secondary: #1C1C1C;
+  --win-color-background-solid-teritary: #282828;
+  --win-color-background-solid-quarternary: #2C2C2C;
+  --win-color-background-solid-quinary: #333333;
+  --win-color-background-solid-senary: #373737;
+
+  // Mica Background
+  --win-background-mica-base: linear-gradient(0deg, rgba(32, 32, 32, 0.8), rgba(32, 32, 32, 0.8)), #202020;
+  --win-background-mica-base-alt: #0A0A0A;
+
+  // Acrylic Background
+  --win-background-acrylic-default: linear-gradient(0deg, rgba(44, 44, 44, 0.15), rgba(44, 44, 44, 0.15)), rgba(44, 44, 44, 0.96);
+  --win-background-acrylic-base: linear-gradient(0deg, rgba(32, 32, 32, 0.5), rgba(32, 32, 32, 0.5)), rgba(32, 32, 32, 0.96);
+
+  // Blur
+  --win-blur-acrylic: blur(60px);
+  --win-blur-mica: blur(240px);
+
+  // shadow
+  --win-shadow-card-rest: 0px 2px 4px rgba(0, 0, 0, 0.13);
+  --win-shadow-card-hover: 0px 2px 4px rgba(0, 0, 0, 0.26);
+  --win-shadow-tooltip: 0px 4px 8px rgba(0, 0, 0, 0.26);
+  --win-shadow-flyout: 0px 8px 16px rgba(0, 0, 0, 0.26);
+  --win-shadow-dialog: 0px 32px 64px rgba(0, 0, 0, 0.37), 0px 2px 21px rgba(0, 0, 0, 0.37);
+}
