@@ -1,13 +1,13 @@
 import type { PropType } from 'vue'
-import type { ButtonLayout, ButtonSize, ButtonStyle } from './types'
+import type { ButtonLayout, ButtonSize, ButtonTheme } from './types'
 
 export const buttonProps = {
   size: {
     type: String as PropType<ButtonSize>,
-    default: 'standard',
+    default: 'medium',
   },
-  style: {
-    type: String as PropType<ButtonStyle>,
+  theme: {
+    type: String as PropType<ButtonTheme>,
     default: 'standrad',
   },
   layout: {

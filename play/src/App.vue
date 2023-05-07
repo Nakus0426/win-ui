@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { Button } from '@win-ui/components/src/button'
 </script>
 
 <template>
-  <WinButton />
+  <Button />
+  <Button theme="accent" />
+  <Button size="small" />
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss"></style>

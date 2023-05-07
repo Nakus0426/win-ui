@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { createNamespace } from '../utils'
 import { buttonProps } from './button'
 
 const props = defineProps(buttonProps)
 
-const buttonClass = computed(() => {
-  return `button button--${props.size} button--${props.style}`
-})
-</script>
-
-<script lang="ts">
-export default {
-  name: 'WinButton',
-}
+const { bem, classes } = createNamespace('button')
 </script>
 
 <template>
-  <button :class="buttonClass">
-    按钮
+  <button
+    :class="classes(
+      bem(),
+      bem(`--${props.size}`),
+      bem(`--${props.theme}`),
+      bem(`--${props.layout}`),
+    )"
+  >
+    button
   </button>
 </template>
 
