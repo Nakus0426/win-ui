@@ -10,100 +10,99 @@ const VUEIDS = '__vue_sfc__'
 const EXPORT = 'export default'
 
 function parseSfc(filename: string) {
-  const source = fe.readFileSync(filename, 'utf-8')
-  const { descriptor } = parse(source, { filename })
-  return descriptor
+	const source = fe.readFileSync(filename, 'utf-8')
+	const { descriptor } = parse(source, { filename })
+	return descriptor
 }
 
 function getSfcStylePath(filePath: string, ext: string, index: number) {
-  const number = index !== 0 ? `-${index + 1}` : ''
-  return replaceExt(filePath, `-sfc${number}.${ext}`)
+	const number = index !== 0 ? `-${index + 1}` : ''
+	return replaceExt(filePath, `-sfc${number}.${ext}`)
 }
 
 function injectStyle(script: string, styles: SFCBlock[], filePath: string) {
-  if (styles.length) {
-    const imports = styles
-      .map((style, index) => {
-        const { base } = pathParse(getSfcStylePath(filePath, 'css', index))
-        return `import './${base}';`
-      })
-      .join('\n')
-    return `${imports}\n${script}`
-  }
-  return script
+	if (styles.length) {
+		const imports = styles
+			.map((style, index) => {
+				const { base } = pathParse(getSfcStylePath(filePath, 'css', index))
+				return `import './${base}';`
+			})
+			.join('\n')
+		return `${imports}\n${script}`
+	}
+	return script
 }
 
 function trim(code: string) {
-  return code.replace(/\/\/\n/g, '').trim()
+	return code.replace(/\/\/\n/g, '').trim()
 }
 
 function injectRender(script: string, render: string) {
-  script = trim(script)
-  render = render.replace('export function render', `function ${RENDER_FN}`)
-  script += `\n${render}\n${VUEIDS}.render = ${RENDER_FN} \n`
-  return script
+	script = trim(script)
+	render = render.replace('export function render', `function ${RENDER_FN}`)
+	script += `\n${render}\n${VUEIDS}.render = ${RENDER_FN} \n`
+	return script
 }
 
 function injectScopeId(script: string, scopeId: string) {
-  script += `\n${VUEIDS}._scopeId = '${scopeId}'`
-  return script
+	script += `\n${VUEIDS}._scopeId = '${scopeId}'`
+	return script
 }
 
 export async function compileSfc(filePath: string): Promise<any> {
-  const tasks = [fe.remove(filePath)]
-  const source = fe.readFileSync(filePath, 'utf-8')
-  const descriptor = parseSfc(filePath)
-  const { template, styles } = descriptor
-  const hasScoped = styles.some(s => s.scoped)
-  const scopeId = hasScoped ? `data-v-${hash(source)}` : ''
+	const tasks = [fe.remove(filePath)]
+	const source = fe.readFileSync(filePath, 'utf-8')
+	const descriptor = parseSfc(filePath)
+	const { template, styles } = descriptor
+	const hasScoped = styles.some((s) => s.scoped)
+	const scopeId = hasScoped ? `data-v-${hash(source)}` : ''
 
-  if (descriptor.script || descriptor.scriptSetup) {
-    const lang = descriptor.script?.lang || descriptor.scriptSetup?.lang || 'js'
-    const scriptFilePath = replaceExt(filePath, `.${lang}`)
+	if (descriptor.script || descriptor.scriptSetup) {
+		const lang = descriptor.script?.lang || descriptor.scriptSetup?.lang || 'js'
+		const scriptFilePath = replaceExt(filePath, `.${lang}`)
 
-    tasks.push(
-      new Promise((resolve) => {
-        let script = ''
-        let bindingMetadata
-        if (descriptor.scriptSetup) {
-          const { bindings, content } = compileScript(descriptor, { id: scopeId })
-          script += content
-          bindingMetadata = bindings
-        }
-        else {
-          script += descriptor.script!.content
-        }
-        script = injectStyle(script, styles, filePath)
-        script = script.replace(EXPORT, `const ${VUEIDS} =`)
+		tasks.push(
+			new Promise((resolve) => {
+				let script = ''
+				let bindingMetadata
+				if (descriptor.scriptSetup) {
+					const { bindings, content } = compileScript(descriptor, { id: scopeId })
+					script += content
+					bindingMetadata = bindings
+				} else {
+					script += descriptor.script!.content
+				}
+				script = injectStyle(script, styles, filePath)
+				script = script.replace(EXPORT, `const ${VUEIDS} =`)
 
-        if (template) {
-          const render = compileTemplate({
-            id: scopeId,
-            source: template.content,
-            filename: filePath,
-            compilerOptions: {
-              bindingMetadata,
-            },
-          }).code
-          script = injectRender(script, render)
-        }
-        if (scopeId)
-          script = injectScopeId(script, scopeId)
-        script += `\n${EXPORT} ${VUEIDS}`
-        if (lang === 'ts')
-          script = `// @ts-nocheck\n${script}`
-        fe.outputFile(scriptFilePath, script).then(resolve).catch(() => { })
-      }),
-    )
-  }
+				if (template) {
+					const render = compileTemplate({
+						id: scopeId,
+						source: template.content,
+						filename: filePath,
+						compilerOptions: {
+							bindingMetadata,
+						},
+					}).code
+					script = injectRender(script, render)
+				}
+				if (scopeId) script = injectScopeId(script, scopeId)
+				script += `\n${EXPORT} ${VUEIDS}`
+				if (lang === 'ts') script = `// @ts-nocheck\n${script}`
+				fe.outputFile(scriptFilePath, script)
+					.then(resolve)
+					.catch(() => {})
+			})
+		)
+	}
 
-  tasks.push(
-    ...styles.map(async (style, index: number) => {
-      const cssFilePath = getSfcStylePath(filePath, style.lang || 'css', index)
-      const styleSource = trim(style.content)
-      return fe.outputFile(cssFilePath, styleSource)
-    }),
-  )
+	tasks.push(
+		...styles.map(async (style, index: number) => {
+			const cssFilePath = getSfcStylePath(filePath, style.lang || 'css', index)
+			const styleSource = trim(style.content)
+			return fe.outputFile(cssFilePath, styleSource)
+		})
+	)
 
-  return Promise.all(tasks)
+	return Promise.all(tasks)
 }

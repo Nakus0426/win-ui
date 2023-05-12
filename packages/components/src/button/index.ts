@@ -3,10 +3,10 @@ import _Button from './Button.vue'
 
 export const Button = withInstall(_Button)
 export default Button
-export type { ButtonSize, ButtonStyle } from './types'
+export type { ButtonSize, ButtonTheme } from './types'
 
 declare module 'vue' {
-  export interface GlobalComponents {
-    WinButton: typeof Button
-  }
+	export interface GlobalComponents {
+		WinButton: typeof Button
+	}
 }

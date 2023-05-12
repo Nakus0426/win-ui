@@ -1,40 +1,40 @@
 {
-  "name": "@win-ui/cli",
-  "type": "module",
-  "version": "0.0.1",
-  "license": "MIT",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "bin": {
-    "win-cli": "./bin.js"
-  },
-  "scripts": {
-    "build": "rimraf ./lib && tsc",
-    "prepare": "pnpm build"
-  },
-  "dependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/preset-typescript": "^7.21.4",
-    "@vue/babel-plugin-jsx": "^1.1.1",
-    "autoprefixer": "^10.4.14",
-    "commander": "^10.0.1",
-    "consola": "^3.1.0",
-    "esbuild": "^0.17.18",
-    "execa": "^7.1.1",
-    "fast-glob": "^3.2.12",
-    "fs-extra": "^11.1.1",
-    "hash-sum": "^2.0.0",
-    "lodash-es": "^4.17.21",
-    "nanospinner": "^1.1.0",
-    "postcss": "^8.4.23",
-    "postcss-load-config": "^4.0.1",
-    "sass": "^1.62.1",
-    "terser": "^5.17.1",
-    "vite": "^4.3.5"
-  },
-  "devDependencies": {
-    "@types/babel__core": "^7.20.0",
-    "@types/fs-extra": "^11.0.1",
-    "rimraf": "^5.0.0"
-  }
+	"name": "@win-ui/cli",
+	"type": "module",
+	"version": "0.0.1",
+	"license": "MIT",
+	"main": "lib/index.js",
+	"typings": "lib/index.d.ts",
+	"bin": {
+		"win-cli": "./bin.js"
+	},
+	"scripts": {
+		"build": "rimraf ./lib && tsc",
+		"prepare": "pnpm build"
+	},
+	"dependencies": {
+		"@babel/core": "^7.21.4",
+		"@babel/preset-typescript": "^7.21.4",
+		"@vue/babel-plugin-jsx": "^1.1.1",
+		"autoprefixer": "^10.4.14",
+		"commander": "^10.0.1",
+		"consola": "^3.1.0",
+		"esbuild": "^0.17.18",
+		"execa": "^7.1.1",
+		"fast-glob": "^3.2.12",
+		"fs-extra": "^11.1.1",
+		"hash-sum": "^2.0.0",
+		"lodash-es": "^4.17.21",
+		"nanospinner": "^1.1.0",
+		"postcss": "^8.4.23",
+		"postcss-load-config": "^4.0.1",
+		"sass": "^1.62.1",
+		"terser": "^5.17.1",
+		"vite": "^4.3.5"
+	},
+	"devDependencies": {
+		"@types/babel__core": "^7.20.0",
+		"@types/fs-extra": "^11.0.1",
+		"rimraf": "^5.0.0"
+	}
 }

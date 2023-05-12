@@ -1,5 +1,22 @@
 {
-  "extends": [
-    "@antfu"
-  ]
+	"extends": [
+		"prettier",
+		"prettier/vue",
+		"plugin:vue/vue3-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"airbnb-base"
+	],
+	"plugins": ["@typescript-eslint"],
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser",
+		"ecmaVersion": 2023,
+		"sourceType": "module",
+		"extraFileExtensions": [".vue"]
+	},
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"rules": {}
 }

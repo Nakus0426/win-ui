@@ -6,28 +6,25 @@ import { getComponents, normalizePath, smartOutputFile } from '../common/index.j
 type PathResolver = (path: string) => string
 
 function getPathByName(name: string, pathResolver?: PathResolver) {
-  let path = join(SRC_DIR, name)
-  if (pathResolver)
-    path = pathResolver(path)
-  return normalizePath(path)
+	let path = join(SRC_DIR, name)
+	if (pathResolver) path = pathResolver(path)
+	return normalizePath(path)
 }
 
 function genImports(names: string[], pathResolver?: PathResolver): string {
-  return names
-    .map((name) => {
-      const importName = upperFirst(camelCase(name))
-      const importPath = getPathByName(name, pathResolver)
-      return `import ${importName} from '${importPath}';`
-    })
-    .join('\n')
+	return names
+		.map((name) => {
+			const importName = upperFirst(camelCase(name))
+			const importPath = getPathByName(name, pathResolver)
+			return `import ${importName} from '${importPath}';`
+		})
+		.join('\n')
 }
 
 function genExports(names: string[], pathResolver?: PathResolver): string {
-  const exports = names
-    .map(name => `export * from '${getPathByName(name, pathResolver)}';`)
-    .join('\n')
+	const exports = names.map((name) => `export * from '${getPathByName(name, pathResolver)}';`).join('\n')
 
-  return `
+	return `
 export {
   install,
   version,
@@ -36,11 +33,11 @@ ${exports}`
 }
 
 export function genPackageEntry(outputPath: string, pathResolver?: PathResolver) {
-  const names = getComponents()
-  const version = process.env.PACKAGE_VERSION || getPackageJson().version
-  const components = names.map(name => upperFirst(camelCase(name)))
+	const names = getComponents()
+	const version = process.env.PACKAGE_VERSION || getPackageJson().version
+	const components = names.map((name) => upperFirst(camelCase(name)))
 
-  const content = `${genImports(names, pathResolver)}
+	const content = `${genImports(names, pathResolver)}
 
 const version = '${version}';
   
@@ -65,5 +62,5 @@ export default {
   version
 };`
 
-  smartOutputFile(outputPath, content)
+	smartOutputFile(outputPath, content)
 }

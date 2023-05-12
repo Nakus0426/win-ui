@@ -1,89 +1,126 @@
 .win-button {
-  cursor: pointer;
-  border-radius: 4px;
-  position: relative;
-  border: 1px solid transparent;
-  background-clip: padding-box;
+	cursor: pointer;
+	border-radius: 4px;
+	position: relative;
+	border: 1px solid transparent;
+	background-clip: padding-box;
+	transition: background-color var(--win-transition);
 
-  &--medium {
-    height: 30px;
-    min-width: 100px;
-    font: var(--win-font-body);
-  }
+	&--medium {
+		height: 30px;
+		min-width: 100px;
+		font: var(--win-font-body);
+	}
 
-  &--small {
-    min-width: 50px;
-    height: 22px;
-    font: var(--win-font-body);
-  }
+	&--small {
+		min-width: 50px;
+		height: 22px;
+		font: var(--win-font-body);
+	}
 
-  &--standrad {
-    color: var(--win-color-text-primary);
-    background-color: var(--win-color-control-default);
+	&--standrad {
+		color: var(--win-color-text-primary);
+		background-color: var(--win-color-control-default);
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      bottom: -1px;
-      left: -1px;
-      right: -1px;
-      z-index: -1;
-      border-radius: 4px;
-      background-color: var(--win-color-control-default);
-      background-image: var(--win-color-elevation-control);
-    }
+		&::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			bottom: -1px;
+			left: -1px;
+			right: -1px;
+			z-index: -1;
+			border-radius: 4px;
+			background-color: var(--win-color-control-default);
+			background-image: var(--win-color-elevation-control);
+			transition: background-color var(--win-transition);
+		}
 
-    &:hover {
-      background-color: var(--win-color-control-secondary);
+		&:hover {
+			background-color: var(--win-color-control-secondary);
 
-      &::before {
-        background-color: var(--win-color-control-secondary);
-      }
-    }
+			&::before {
+				background-color: var(--win-color-control-secondary);
+			}
+		}
 
-    &:active {
-      color: var(--win-color-text-secondary);
-      background-color: var(--win-color-control-tertiary);
+		&:active {
+			color: var(--win-color-text-secondary);
+			background-color: var(--win-color-control-tertiary);
+			border-color: var(--win-color-stroke-control-default);
+			box-sizing: border-box;
 
-      &::before {
-        background-color: var(--win-color-control-tertiary);
-      }
-    }
-  }
+			&::before {
+				background-color: var(--win-color-control-tertiary);
+				background-image: none;
+			}
+		}
+	}
 
-  &--accent {
-    color: var(--win-color-text-accent-primary-2);
-    background-color: var(--win-color-accent-default);
+	&--accent {
+		color: var(--win-color-text-on-accent);
+		background-color: var(--win-color-accent-default);
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      bottom: -1px;
-      left: -1px;
-      right: -1px;
-      z-index: -1;
-      border-radius: 4px;
-      background-color: var(--win-color-accent-default);
-      background-image: var(--win-color-elevation-control-accent);
-    }
+		&::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			bottom: -1px;
+			left: -1px;
+			right: -1px;
+			z-index: -1;
+			border-radius: 4px;
+			background-color: var(--win-color-accent-default);
+			background-image: var(--win-color-elevation-control-accent);
+			transition: background-color var(--win-transition);
+		}
 
-    &:hover {
-      background-color: var(--win-color-accent-secondary);
+		&:hover {
+			background-color: var(--win-color-accent-secondary);
 
-      &::before {
-        background-color: var(--win-color-accent-secondary);
-      }
-    }
+			&::before {
+				background-color: var(--win-color-accent-secondary);
+			}
+		}
 
-    &:active {
-      color: var(--win-color-text-accent-secondary-2);
-      background-color: var(--win-color-accent-tertiary);
+		&:active {
+			color: var(--win-color-text-accent-secondary-2);
+			background-color: var(--win-color-accent-tertiary);
+			border-color: var(--win-color-stroke-control-default-accent);
+			box-sizing: border-box;
 
-      &::before {
-        background-color: var(--win-color-accent-tertiary);
-      }
-    }
-  }
+			&::before {
+				background-color: var(--win-color-accent-tertiary);
+				background-image: none;
+			}
+		}
+	}
+
+
+
+	&--standrad.win-button--disabled {
+		color: var(--win-color-text-disabled) !important;
+		background-color: var(--win-color-control-default) !important;
+		border-color: var(--win-color-stroke-control-default) !important;
+		box-sizing: border-box;
+		cursor: not-allowed;
+
+		&::before {
+			background-color: var(--win-color-control-default) !important;
+			background-image: none;
+		}
+	}
+
+	&--accent.win-button--disabled {
+		color: var(--win-color-text-accent-disabled-2) !important;
+		background-color: var(--win-color-accent-disabled) !important;
+		border-color: var(--win-color-accent-disabled) !important;
+		box-sizing: border-box;
+		cursor: not-allowed;
+
+		&::before {
+			background-color: var(--win-color-accent-disabled) !important;
+			background-image: none;
+		}
+	}
 }

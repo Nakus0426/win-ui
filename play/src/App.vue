@@ -3,9 +3,16 @@ import { Button } from '@win-ui/components/src/button'
 </script>
 
 <template>
-  <Button />
-  <Button theme="accent" />
-  <Button size="small" />
+	<div>theme</div>
+	<Button />
+	<Button theme="accent" />
+	<div>size</div>
+	<Button size="small" />
+	<Button theme="accent" size="small" />
+	<div>disabled</div>
+	<Button disabeld />
+	<Button theme="accent" disabeld />
+	<button style="border: 1px solid ;"></button>
 </template>
 
 <style lang="scss"></style>

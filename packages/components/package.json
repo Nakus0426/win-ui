@@ -1,20 +1,20 @@
 {
-  "name": "@win-ui/components",
-  "version": "0.0.1",
-  "license": "MIT",
-  "main": "lib/win-ui.cjs.js",
-  "module": "es/index.mjs",
-  "style": "lib/index.css",
-  "typings": "lib/index.d.ts",
-  "scripts": {
-    "build": "win-cli build"
-  },
-  "dependencies": {
-    "@win-ui/hooks": "workspace:*",
-    "lodash-es": "^4.17.21"
-  },
-  "devDependencies": {
-    "@vue/runtime-core": "^3.2.47",
-    "@win-ui/cli": "workspace:*"
-  }
+	"name": "@win-ui/components",
+	"version": "0.0.1",
+	"license": "MIT",
+	"main": "lib/win-ui.cjs.js",
+	"module": "es/index.mjs",
+	"style": "lib/index.css",
+	"typings": "lib/index.d.ts",
+	"scripts": {
+		"build": "win-cli build"
+	},
+	"dependencies": {
+		"@win-ui/hooks": "workspace:*",
+		"lodash-es": "^4.17.21"
+	},
+	"devDependencies": {
+		"@vue/runtime-core": "^3.2.47",
+		"@win-ui/cli": "workspace:*"
+	}
 }
