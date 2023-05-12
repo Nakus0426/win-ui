@@ -1,5 +1,5 @@
-export type ButtonSize = 'standard' | 'compact'
+export type ButtonSize = 'medium' | 'small'
 
-export type ButtonStyle = 'standard' | 'accent' | 'subtle'
+export type ButtonTheme = 'standard' | 'accent' | 'subtle'
 
 export type ButtonLayout = 'text' | 'icon' | 'iconBefore' | 'iconAfter'
